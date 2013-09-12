@@ -3,7 +3,7 @@
  */
 package org.dotkam.pi
 
-import akka.util.Duration
+import scala.concurrent.duration.Duration
 
 /**
  * TODO: Document Me

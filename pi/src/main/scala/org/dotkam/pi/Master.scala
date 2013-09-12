@@ -2,7 +2,9 @@ package org.dotkam.pi
 
 import akka.actor.{Actor, Props, ActorRef}
 import akka.routing.RoundRobinRouter
-import akka.util.duration._
+import scala.concurrent.duration.Duration
+import java.util.concurrent.TimeUnit
+
 
 /**
  * TODO: Document Me
@@ -28,7 +30,7 @@ class Master( nrOfWorkers: Int, nrOfMessages: Int, nrOfElements: Int, listener: 
       nrOfResults += 1
       if (nrOfResults == nrOfMessages) {
         // Send the result to the listener
-        listener ! PiApproximation(pi, duration = ( System.currentTimeMillis - start ).millis )
+        listener ! PiApproximation(pi, duration = Duration(System.currentTimeMillis - start, TimeUnit.MILLISECONDS) )
         // Stops this actor and all its supervised children
         context.stop(self)
       }
