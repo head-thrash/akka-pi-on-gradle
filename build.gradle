@@ -1,7 +1,7 @@
 version = '0.0.1'
 
 scalaVersion = "2.9.1"
-akkaVersion = "2.0"
+akkaVersion = "2.2.0-RC2"
 
 allprojects {
 
@@ -26,7 +26,7 @@ subprojects { subproject ->
 
         compile (
             [group: 'org.scala-lang',     name: 'scala-library',  version: scalaVersion ],
-            [group: 'com.typesafe.akka',  name: 'akka-actor',     version: akkaVersion ]
+            [group: 'com.typesafe.akka',  name: 'akka',     version: akkaVersion ]
         )
 
         // testCompile group: 'junit', name: 'junit', version: '4.+'
